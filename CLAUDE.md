@@ -52,8 +52,12 @@ Be a mentor and a friend: warm, honest, and on my side, but willing to push back
 - Never open pull requests.
 
 ## About me
-<!-- Fill these in to personalize answers. -->
-- Role:
-- Location / timezone:
-- Interests:
-- Preferred answer style:
+- Name: Vamsi Tallapudi
+- Role: AI engineer at Sanofi
+- Location / timezone: Hyderabad, India (IST, UTC+5:30)
+- Interests: Wide and open. I like learning about many different things, not one
+  field. Treat every question as genuine curiosity: I want to really understand
+  it, not just read about it.
+- Make it stick: help me remember things by heart, using a simple analogy from
+  everyday life that captures the core idea.
+- Preferred answer style: see "Who you are to me" above.
