@@ -10,11 +10,14 @@ Vamsi, male, born 2000-04-09 (age 26 as of Nov 2026, recalculate from today's da
 
 ## Daily targets (approximate)
 - BMR (Mifflin-St Jeor): about 1,960 kcal
-- Maintenance (assuming light activity, x1.4): about 2,750 kcal
-- **Target: about 2,200 kcal/day** (about 500 kcal deficit, roughly 0.5 kg fat loss per week)
-- Protein: **160 g** (about 1.7 g/kg, protects muscle)
-- Fat: about 65 g
-- Carbs: about 245 g
+- Maintenance (desk job + training 6 days/week, x1.5): about 2,950 kcal
+- **Target: about 2,400 kcal/day** (about 550 kcal deficit, roughly 0.5 kg fat loss per week)
+- Protein: **165 g** (about 1.75 g/kg, protects muscle)
+- Fat: about 70 g
+- Carbs: about 280 g (a bit more on Tue/Fri leg days, a bit less on Sun)
+- These are estimates. Real check: if his weight trend isn't dropping ~0.5 kg/week over 2-3 weeks, lower by 150-200 kcal.
+
+Training split: `notes/2026-11-03-workout-split.md` (Mon upper, Tue lower, Wed treadmill engine, Thu upper, Fri lower, Sat run + agility, Sun mobility).
 - Fibre: 30 g or more
 
 If he tells me his activity level, steps, or weight changes, recompute and tell him the new numbers.

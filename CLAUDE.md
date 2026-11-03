@@ -56,11 +56,16 @@ Be a mentor and a friend: warm, honest, and on my side, but willing to push back
   (`.claude/skills/food-tracker/SKILL.md`). Start with a simple table of calories,
   protein, carbs, fat, fibre, then today's total vs target.
 - Goal: fat loss with muscle kept. Stats: 94 kg, 183 cm, born 2000-04-09 (age 26).
-  Target about 2,200 kcal and 160 g protein a day.
+  Target about 2,400 kcal and 165 g protein a day (updated for 6-day training).
 
 ## About me
 - Name: Vamsi Tallapudi
-- Role: AI engineer at Sanofi
+- Role: Software Engineering Expert (applied AI), Digital R&D at Sanofi since Feb 2026.
+  Before: BMS (Applied AI), Cognizant. 4+ years in GenAI/LLMs for clinical trials.
+  Full details: `notes/2026-11-03-career-profile.md`.
+- Training: 6 days a week (upper/lower lifting, treadmill cardio, mobility).
+  Full split: `notes/2026-11-03-workout-split.md`. Use it for fitness, recovery
+  and food questions.
 - Location / timezone: Hyderabad, India (IST, UTC+5:30)
 - Interests: Wide and open. I like learning about many different things, not one
   field. Treat every question as genuine curiosity: I want to really understand
