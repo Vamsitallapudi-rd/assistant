@@ -5,6 +5,7 @@ import fs from 'node:fs/promises'
 import { convertPdfToText, convertParquetSubset, convertGraphParquetToJson } from './converters'
 import { resolveGraphRagEnv } from './graphragEnv'
 import { resolveProviderEnv, type BuildProvider } from './providerConfig'
+import { EMBED_API_BASE, ensureEmbedServer } from './embedServer'
 
 export type IndexJobStatus = 'running' | 'succeeded' | 'failed' | 'stopped'
 
@@ -264,6 +265,17 @@ async function runJob(job: IndexJob, env: NodeJS.ProcessEnv, completionModel: st
   await fs.writeFile(logHistoryPath, '').catch(() => {})
   emit({ type: 'status', message: 'Preparing dataset…' })
   log(`BUILD · ${job.projectName} · MODEL ${job.provider.toUpperCase()} · ${completionModel} · EMBEDDING ${embeddingModel} · CONCURRENCY ${concurrency}`)
+
+  if (env.GRAPHRAG_EMBEDDING_API_BASE === EMBED_API_BASE) {
+    emit({ type: 'status', message: 'Starting local embeddings…' })
+    try {
+      await ensureEmbedServer(embeddingModel, log)
+    } catch (error) {
+      log(`ERROR · ${error instanceof Error ? error.message : 'Local embedding server failed'}`)
+      finish('failed', false, 'EMBED_SERVER_FAILED')
+      return
+    }
+  }
 
   // ---- Dataset preparation: stage removals, convert PDFs to text ----
   const inputDir = path.join(root, 'input')

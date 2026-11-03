@@ -4,6 +4,7 @@ version = "2.0.0"
 description = "Pinned local GraphRAG runtime for GraphRAG Workbench"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+  "fastembed>=0.9.1",
   "graphrag==3.1.0",
 ]
 

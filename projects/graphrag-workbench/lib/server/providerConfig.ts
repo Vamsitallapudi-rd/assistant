@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { promisify } from 'node:util'
+import { EMBED_API_BASE, embedServerHealth } from './embedServer'
 
 const execFileAsync = promisify(execFile)
 const configDir = () => path.join(process.cwd(), '.graphrag')
@@ -16,9 +17,9 @@ export const LOCAL_DEFAULTS = {
 
 export const CLOUD_DEFAULTS = {
   // Claude does the extraction; Anthropic has no embedding API, so embeddings
-  // stay on local Ollama.
+  // run locally from Hugging Face (fastembed, CPU) — no Ollama needed.
   completionModel: 'claude-sonnet-5-5',
-  embeddingModel: 'embeddinggemma:latest',
+  embeddingModel: 'BAAI/bge-base-en-v1.5',
   embeddingVectorSize: 768,
 } as const
 
@@ -112,6 +113,7 @@ export async function getProviderStatus() {
     return model === name || model === `${name}:latest`
   })
 
+  const embed = await embedServerHealth()
   const cloudEmbeddingModel = stored.anthropic?.embeddingModel || CLOUD_DEFAULTS.embeddingModel
 
   return {
@@ -128,11 +130,12 @@ export async function getProviderStatus() {
       embeddingReady: hasModel(localEmbeddingModel),
     },
     cloud: {
-      ready: Boolean(stored.anthropic?.apiKey || process.env.ANTHROPIC_API_KEY) && running && hasModel(cloudEmbeddingModel),
+      // The local embedding server is started on demand by the build.
+      ready: Boolean(stored.anthropic?.apiKey || process.env.ANTHROPIC_API_KEY),
       keyStored: Boolean(stored.anthropic?.apiKey || process.env.ANTHROPIC_API_KEY),
       completionModel: stored.anthropic?.completionModel || CLOUD_DEFAULTS.completionModel,
       embeddingModel: cloudEmbeddingModel,
-      embeddingReady: running && hasModel(cloudEmbeddingModel),
+      embeddingReady: embed.running,
     },
   }
 }
@@ -158,11 +161,12 @@ export async function resolveProviderEnv(provider: BuildProvider, source: NodeJS
     env.GRAPHRAG_COMPLETION_MODEL = stored.anthropic?.completionModel || CLOUD_DEFAULTS.completionModel
     env.GRAPHRAG_COMPLETION_API_BASE = 'https://api.anthropic.com'
     env.GRAPHRAG_API_KEY = apiKey
-    // Embeddings: local Ollama (Anthropic offers none). Never send the Claude key there.
-    env.GRAPHRAG_EMBEDDING_PROVIDER = 'ollama'
+    // Embeddings: local Hugging Face server speaking the OpenAI embeddings
+    // protocol (Anthropic offers none). Never send the Claude key there.
+    env.GRAPHRAG_EMBEDDING_PROVIDER = 'openai'
     env.GRAPHRAG_EMBEDDING_MODEL = stored.anthropic?.embeddingModel || CLOUD_DEFAULTS.embeddingModel
-    env.GRAPHRAG_EMBEDDING_API_BASE = 'http://127.0.0.1:11434'
-    env.GRAPHRAG_EMBEDDING_API_KEY = 'ollama'
+    env.GRAPHRAG_EMBEDDING_API_BASE = EMBED_API_BASE
+    env.GRAPHRAG_EMBEDDING_API_KEY = 'local'
     env.GRAPHRAG_CONCURRENT_REQUESTS = '4'
     env.GRAPHRAG_EMBEDDING_VECTOR_SIZE = String(CLOUD_DEFAULTS.embeddingVectorSize)
   }

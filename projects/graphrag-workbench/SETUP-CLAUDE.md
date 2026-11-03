@@ -1,12 +1,21 @@
-# Running this workbench with Claude (Anthropic)
+# Running this workbench with Claude (Anthropic) — no Ollama needed
 
-Changes vs upstream: the "cloud" preset now uses Claude for extraction. Embeddings stay on local Ollama (Anthropic has no embedding API).
+Changes vs upstream:
+- **Extraction / summaries:** Claude via the Anthropic API (default `claude-sonnet-5-5`).
+- **Embeddings:** local Hugging Face model `BAAI/bge-base-en-v1.5` (768-dim, CPU, ONNX via fastembed).
+  Served by `scripts/embed_server.py` on 127.0.0.1:11435 (OpenAI-compatible). The build starts it
+  automatically; the model downloads once (~220 MB) into `.graphrag/hf-models`.
 
-## One-time setup (on your own machine)
-1. Install Ollama: https://ollama.com/download, then `ollama pull embeddinggemma`
+## Setup (on your machine)
+1. Install Node 20.9+, pnpm, Python 3.12 and uv.
 2. `pnpm install && uv sync --frozen`
-3. `pnpm dev` and open http://127.0.0.1:3000
-4. Projects → Build providers → Cloud tab → paste your Anthropic key (or export ANTHROPIC_API_KEY before `pnpm dev`)
-5. Add a text-backed PDF → "Run with Claude"
+3. `pnpm dev`, then open http://127.0.0.1:3000
+4. Projects → Build providers → Cloud tab → paste your Anthropic key (or `export ANTHROPIC_API_KEY=...` before `pnpm dev`)
+5. Name the project, add a text-backed PDF, click **Run with Claude**.
 
-Model default: `claude-sonnet-5-5` (editable in the Cloud tab).
+## Notes
+- Other 768-dim models also work without changing the vector size, e.g. `nomic-ai/nomic-embed-text-v1.5`.
+  If you pick a model with a different size, also change `CLOUD_DEFAULTS.embeddingVectorSize` in `lib/server/providerConfig.ts`.
+- If you change the embedding model, stop the old server first: `pkill -f embed_server.py`.
+- Embedding server logs: `logs/embed-server.log`.
+- The "Run with Ollama" button still exists but needs Ollama; ignore it.

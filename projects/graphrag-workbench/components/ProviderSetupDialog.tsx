@@ -38,10 +38,10 @@ export function ProviderSetupDialog({ open, onOpenChange, status, onStatusChange
   const [tab, setTab] = useState(initialTab)
   const [apiKey, setApiKey] = useState('')
   const [completionModel, setCompletionModel] = useState('gemma4:latest')
-  const [embeddingModel, setEmbeddingModel] = useState('embeddinggemma:latest')
+  const [embeddingModel, setEmbeddingModel] = useState('BAAI/bge-base-en-v1.5')
   const [embeddingVectorSize, setEmbeddingVectorSize] = useState(768)
   const [cloudCompletionModel, setCloudCompletionModel] = useState('claude-sonnet-5-5')
-  const [cloudEmbeddingModel, setCloudEmbeddingModel] = useState('embeddinggemma:latest')
+  const [cloudEmbeddingModel, setCloudEmbeddingModel] = useState('BAAI/bge-base-en-v1.5')
   const [saving, setSaving] = useState(false)
   const [pulling, setPulling] = useState<string | null>(null)
   const [pullLog, setPullLog] = useState<string[]>([])
@@ -155,10 +155,10 @@ export function ProviderSetupDialog({ open, onOpenChange, status, onStatusChange
 
           <TabsContent value="cloud" className="min-h-0 overflow-auto px-6 py-5" data-hmi-scroll>
             <div className="grid gap-4">
-              <div className="border border-white/10 p-4 text-sm"><p>Claude (Anthropic) does the extraction: faster and stronger than a small local model. Embeddings still run locally on Ollama, because Anthropic has no embedding API. Pull the embedding model on the Local tab first.</p><p className="mt-1 text-xs text-[#9fb9cc]">This workbench-wide key is available to every GraphRAG project. It is stored in a gitignored file readable only by your operating-system account and never returned to the browser.</p></div>
+              <div className="border border-white/10 p-4 text-sm"><p>Claude (Anthropic) does the extraction: faster and stronger than a small local model. Embeddings run locally from a Hugging Face model (CPU, no Ollama), because Anthropic has no embedding API. It downloads once on the first build.</p><p className="mt-1 text-xs text-[#9fb9cc]">This workbench-wide key is available to every GraphRAG project. It is stored in a gitignored file readable only by your operating-system account and never returned to the browser.</p></div>
               <label className="grid gap-1.5 text-xs"><span>Anthropic API key</span><Input type="password" autoComplete="off" value={apiKey} onChange={event => setApiKey(event.target.value)} placeholder={status?.cloud.ready ? 'Key configured — enter a new key to replace it' : 'sk-ant-…'} className="rounded-none" /></label>
               <label className="grid gap-1.5 text-xs"><span>Extraction model</span><Input value={cloudCompletionModel} onChange={event => setCloudCompletionModel(event.target.value)} className="rounded-none" /></label>
-              <label className="grid gap-1.5 text-xs"><span>Embedding model (local Ollama)</span><Input value={cloudEmbeddingModel} onChange={event => setCloudEmbeddingModel(event.target.value)} className="rounded-none" /></label>
+              <label className="grid gap-1.5 text-xs"><span>Embedding model (local Hugging Face, 768-dim)</span><Input value={cloudEmbeddingModel} onChange={event => setCloudEmbeddingModel(event.target.value)} className="rounded-none" /></label>
               <div className="flex items-center justify-between gap-3"><Button variant="ghost" className="rounded-none text-red-300" onClick={removeCloud} disabled={!status?.cloud.keyStored}><Trash2 /> Remove stored key</Button><Button className="rounded-none" onClick={saveCloud} disabled={saving || !apiKey.trim()}>{saving ? <Loader2 className="animate-spin" /> : <Check />} Save Claude preset</Button></div>
             </div>
           </TabsContent>
