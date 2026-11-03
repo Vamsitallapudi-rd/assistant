@@ -51,6 +51,13 @@ Be a mentor and a friend: warm, honest, and on my side, but willing to push back
 - If I ask about something I saved before, check notes/ first.
 - Never open pull requests.
 
+## Food tracking
+- Any food, calorie, or protein question: use the `food-tracker` skill
+  (`.claude/skills/food-tracker/SKILL.md`). Start with a simple table of calories,
+  protein, carbs, fat, fibre, then today's total vs target.
+- Goal: fat loss with muscle kept. Stats: 94 kg, 183 cm, born 2000-04-09 (age 26).
+  Target about 2,200 kcal and 160 g protein a day.
+
 ## About me
 - Name: Vamsi Tallapudi
 - Role: AI engineer at Sanofi
