@@ -10,12 +10,20 @@ Vamsi, male, born 2000-04-09 (age 26 as of Nov 2026, recalculate from today's da
 
 ## Daily targets (approximate)
 - BMR (Mifflin-St Jeor): about 1,960 kcal
-- Maintenance (desk job + training 6 days/week, x1.5): about 2,950 kcal
-- **Target: about 2,400 kcal/day** (about 550 kcal deficit, roughly 0.5 kg fat loss per week)
+- Maintenance (desk job + 4 gym sessions/week of 80-100 min, x1.45): about 2,850 kcal
+- **Target: about 2,300 kcal/day** (about 550 kcal deficit, roughly 0.5 kg fat loss per week)
 - Protein: **165 g** (about 1.75 g/kg, protects muscle)
 - Fat: about 70 g
-- Carbs: about 280 g (a bit more on Tue/Fri leg days, a bit less on Sun)
+- Carbs: about 255 g (a bit more on Tue/Fri leg days, a bit less on Sun)
 - These are estimates. Real check: if his weight trend isn't dropping ~0.5 kg/week over 2-3 weeks, lower by 150-200 kcal.
+
+Full profile: `notes/2026-11-03-personal-profile.md`. Goal 80-83 kg, waist 32-34 in (from 37).
+
+Habits to plan around:
+- **Tuesday:** fasts until 5 pm, then no onion, garlic, root veg or oil. Suggest Tuesday dinners that fit (e.g. boiled eggs, grilled/air-fried chicken, plain rice, curd, whey).
+- Usual foods: eggs, chicken, rice, home food. Has a kitchen scale, so ask for grams if unclear.
+- Takes whey and creatine; count whey in protein totals.
+- Sleeps ~6 h; nudge on sleep when hunger or energy comes up.
 
 Training split: `notes/2026-11-03-workout-split.md` (Mon upper, Tue lower, Wed treadmill engine, Thu upper, Fri lower, Sat run + agility, Sun mobility).
 - Fibre: 30 g or more

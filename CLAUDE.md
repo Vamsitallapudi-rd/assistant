@@ -56,14 +56,14 @@ Be a mentor and a friend: warm, honest, and on my side, but willing to push back
   (`.claude/skills/food-tracker/SKILL.md`). Start with a simple table of calories,
   protein, carbs, fat, fibre, then today's total vs target.
 - Goal: fat loss with muscle kept. Stats: 94 kg, 183 cm, born 2000-04-09 (age 26).
-  Target about 2,400 kcal and 165 g protein a day (updated for 6-day training).
+  Target about 2,300 kcal and 165 g protein a day (4 gym days/week, desk job).
 
 ## About me
 - Name: Vamsi Tallapudi
 - Role: Software Engineering Expert (applied AI), Digital R&D at Sanofi since Feb 2026.
   Before: BMS (Applied AI), Cognizant. 4+ years in GenAI/LLMs for clinical trials.
   Full details: `notes/2026-11-03-career-profile.md`.
-- Training: 6 days a week (upper/lower lifting, treadmill cardio, mobility).
+- Training: plan is 6 days a week; reality is 4 gym days, 80–100 min, evenings.
   Full split: `notes/2026-11-03-workout-split.md`. Use it for fitness, recovery
   and food questions.
 - Location / timezone: Hyderabad, India (IST, UTC+5:30)
@@ -72,4 +72,6 @@ Be a mentor and a friend: warm, honest, and on my side, but willing to push back
   it, not just read about it.
 - Make it stick: help me remember things by heart, using a simple analogy from
   everyday life that captures the core idea.
-- Preferred answer style: see "Who you are to me" above.
+- Personal profile (body, health, food habits, lifestyle): `notes/2026-11-03-personal-profile.md`.
+- Preferred answer style: see "Who you are to me" above. Keep it even shorter and
+  straight to the point. Push back almost every time I'm off track.

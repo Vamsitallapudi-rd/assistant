@@ -31,7 +31,7 @@
 
 ## TUE: Lower A
 - **Power:** 🔒 Box jump 3×5 · Vertical jump 3×5
-- **Main strength:** 🔒 BB back squat 3×6–8 (current max 85 kg) · 🔒 Alternate: BB RDL 3×10 / Ham curl 2×failure / Single-leg RDL 3×8/side · 🔒 Bulgarian split squat 3×8/side
+- **Main strength:** 🔒 BB back squat 3×6–8 (current: 80 kg) · 🔒 Alternate: BB RDL 3×10 / Ham curl 2×failure / Single-leg RDL 3×8/side · 🔒 Bulgarian split squat 3×8/side
 - **Accessories & core:** ⭐ BB hip thrust 3×8–10 (2s squeeze) · ⭐ Suitcase carry 4×20 m/side · 🔒 Seated calf raise 2×20 · ⭐ Dead bug 3×8/side (5s descent) · ⭐ Copenhagen plank 2×30s/side
 - **Isometric:** 🔒 Spanish squat hold 3×30–45s · Seated soleus hold 2×30s
 - **Finisher:** Standing calf raise 2×15 · ⭐ Tibialis raise 2×20 · Hyperextensions 2×12–15
